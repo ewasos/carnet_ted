@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+{% block title %}Home{% endblock %}
+
+{% block nav%}
+    <ul>
+        <li><a class="active" href="#home">Carnet d'adresse</a></li>
+        <li><a href="#news">Afficher la liste</a></li>
+        <li><a href="#contact">Ajouter une personne</a></li>
+    </ul>
+{% endblock %}
+
+
+{% block stylesheets %}
+    <style>
+        body { background: #F5F5F5; font: 16px/1.5 sans-serif; }
+        h1, h2 { line-height: 2; margin: 0 0 .5em; }
+        h1 { font-size: 21px; background-color: #C9C9C9; padding-left: 10px; }
+        h2 { font-size: 18px; margin-bottom: 1em; }
+        p { margin: 0 0 1em 0; }
+        a { color: #0000F0; }
+        a:hover { text-decoration: none; }
+        code { background: #F5F5F5; max-width: 100px; padding: 2px 6px; word-wrap: break-word; }
+        #welcome h1 span { display: block; font-size: 75%; }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        /* Change the link color to #111 (black) on hover */
+        li a:hover {
+            background-color: #111;
+        }
+        .active {
+            background-color: #aacd4e;
+        }
+
+        .footer {
+            padding-top: 5px;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-color: #333333;
+            color: white;
+            text-align: center;
+            font-size: 12px;
+        }
+        a{
+            color: #aacd4e;
+            text-decoration: none;
+        }
+    </style>
+{% endblock %}

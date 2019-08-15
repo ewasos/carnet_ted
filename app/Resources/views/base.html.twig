@@ -2,12 +2,20 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Booknote{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        {% block nav %}{% endblock %}
         {% block body %}{% endblock %}
+        <footer class="footer">
+            <div  class="container ">
+                <p class="mentions"><a href="#"> Mentions Légales</a> </p>
+                <p> NoteBook - 86 rue de la TED - 54003 NANCY Cedex - +33 (0)3 54 50 25 00 </p>
+            </div>
+        </footer>
+        <!-- Footer -->
         {% block javascripts %}{% endblock %}
     </body>
 </html>
