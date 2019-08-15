@@ -18,7 +18,15 @@ class NoteBookController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $persons = $em->getRepository('NoteBookBundle:CardPerson')->findAll();
+        $listePersons = $em->getRepository('NoteBookBundle:CardPerson')->findAll();
+
+
+        $persons  = $this->get('knp_paginator')->paginate(
+            $listePersons,
+            $request->query->get('page', 1)/*le numéro de la page à afficher*/,
+            10 /*nbre d'éléments par page*/
+        );
+
 
         return $this->render('notebook/liste_person.html.twig', array(
             'persons' => $persons
