@@ -12,14 +12,17 @@ use Symfony\Component\HttpFoundation\Response;
 class NoteBookController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="list_persons")
      */
-    public function indexAction(Request $request)
+    public function listerAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('notebook/index.html.twig', [
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR,
-        ]);
+
+        $em = $this->getDoctrine()->getManager();
+        $persons = $em->getRepository('NoteBookBundle:CardPerson')->findAll();
+
+        return $this->render('notebook/liste_person.html.twig', array(
+            'persons' => $persons
+        ));
     }
     /**
      * @Route("/add", name="add_notebook")

@@ -1,0 +1,41 @@
+{% extends 'notebook/nav_layout.html.twig' %}
+
+{% block body %}
+ <h1>Liste des carnets</h1>
+
+<table>
+ <thead>
+ <tr>
+  <th >Id </th>
+  <th >Nom</th>
+  <th >Prenom</th>
+  <th >Tél</th>
+  <th >Email</th>
+  <th >Profession</th>
+  <th>Status</th>
+  <th >Commentaire</th>
+  <th >Ajouté le</th>
+  <th >Nom Carnet</th>
+
+ </tr>
+ </thead>
+ <tbody>
+
+ {% for person in persons %}
+  <tr>
+   <th >{{ person.id }}</th>
+   <td>{{ person.name}}</td>
+   <td>{{ person.firstname }}</td>
+   <td>{{ person.phone }}</td>
+   <td>{{ person.email }}</td>
+   <td>{{ person.profession }}</td>
+   <td>{% if person.status == 1 %}retraité {% elseif person.status == 0 %}non retraité {% endif %}</td>
+   <td>{{ person.comments }}</td>
+   <td>{{ person.createdAt|date("m/d/Y") }}</td>
+   <td>{{ person.getNoteBook().name }}</td>
+ {% endfor %}
+
+ </tbody>
+</table>
+
+{% endblock %}

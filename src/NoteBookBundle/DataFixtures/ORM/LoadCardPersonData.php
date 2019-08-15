@@ -16,7 +16,7 @@ class LoadCardPersonData
 	/**     
 	* Number of persons to add
 	*/   
-	 const NUMBER_OF_PERSONS = 20;
+	 const NUMBER_OF_PERSONS = 100;
 	
 	  /**
 	  * Load data fixtures with the passed EntityManager
