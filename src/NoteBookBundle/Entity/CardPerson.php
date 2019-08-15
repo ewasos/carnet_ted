@@ -288,11 +288,11 @@ class CardPerson
     /**
      * Set notebook
      *
-     * @param \NoteBook\Entity\NoteBook $notebook
+     * @param \NoteBookBundle\Entity\NoteBook $notebook
      *
      * @return CardPerson
      */
-    public function setNotebook(\NoteBook\Entity\NoteBook $notebook = null)
+    public function setNotebook(\NoteBookBundle\Entity\NoteBook $notebook = null)
     {
         $this->notebook = $notebook;
 
@@ -302,7 +302,7 @@ class CardPerson
     /**
      * Get notebook
      *
-     * @return \NoteBook\Entity\NoteBook
+     * @return \NoteBookBundle\Entity\NoteBook
      */
     public function getNotebook()
     {

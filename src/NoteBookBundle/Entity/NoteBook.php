@@ -3,6 +3,7 @@
 namespace NoteBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * NoteBook
@@ -22,7 +23,6 @@ class NoteBook
     private $id;
 
     /**
-     * @var string
      *
      * @ORM\Column(name="name", type="string", length=100)
      */
@@ -43,6 +43,7 @@ class NoteBook
     public function __construct()
     {
         $this->persons = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     /**
@@ -106,11 +107,11 @@ class NoteBook
     /**
      * Add person
      *
-     * @param \NoteBook\Entity\CardPerson $person
+     * @param \NoteBookBundle\Entity\CardPerson $person
      *
      * @return NoteBook
      */
-    public function addPerson(\NoteBook\Entity\CardPerson $person)
+    public function addPerson(\NoteBookBundle\Entity\CardPerson $person)
     {
         $this->persons[] = $person;
 
@@ -120,9 +121,9 @@ class NoteBook
     /**
      * Remove person
      *
-     * @param \NoteBook\Entity\CardPerson $person
+     * @param \NoteBookBundle\Entity\CardPerson $person
      */
-    public function removePerson(\NoteBook\Entity\CardPerson $person)
+    public function removePerson(\NoteBookBundle\Entity\CardPerson $person)
     {
         $this->persons->removeElement($person);
     }
