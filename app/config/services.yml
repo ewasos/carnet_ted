@@ -5,7 +5,7 @@ parameters:
 
 services:
     # default configuration for services in *this* file
-    _defaults:
+    _defaults: { public: true }
         # automatically injects dependencies in your services
         autowire: true
         # automatically registers your services as commands, event subscribers, etc.
@@ -39,3 +39,8 @@ services:
     NoteBookBundle\DataFixtures\:
             resource: '../../src/NoteBookBundle/DataFixtures'
             tags: ['doctrine.fixture.orm']
+
+    form_add_person:
+        public: true
+        class: NoteBookBundle\Service\FormManager
+        arguments: ["@doctrine.orm.default_entity_manager", "@security.token_storage"]

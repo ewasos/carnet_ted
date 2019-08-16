@@ -26,10 +26,7 @@ class CardPersonType extends AbstractType
             ->add('email', EmailType::class , array('label' => "Email :"))
             ->add('profession', TextType::class, array('label' => "Profession :"))
             ->add('status', ChoiceType::class, [
-                'choices'  => [
-                    'Oui' => true,
-                    'Non' => false,
-                ],
+                'choices' => ['Oui' => true, 'Non' => false],
                 'placeholder' => 'Retraité : '
             ])
             ->add('comments', TextType::class, array('label' => "Commentaires :"))

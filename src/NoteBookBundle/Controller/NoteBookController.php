@@ -6,8 +6,10 @@ use NoteBookBundle\Entity\CardPerson;
 use NoteBookBundle\Entity\NoteBook;
 use NoteBookBundle\Form\CardPersonType;
 
+use NoteBookBundle\Service\FormManager;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Form;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
@@ -41,27 +43,21 @@ class NoteBookController extends Controller
      */
     public function addPersonAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $form_add_service = $this->get('form_add_person');
+        $cardPerson = new CardPerson();
+        $cardPerson->setCreatedAt(new \Datetime());
 
-        $person = new CardPerson();
-        $form_add_person = $this->get('form.factory')->create(CardPersonType::class, $person);
+        $form = $this->createForm(CardPersonType::class, $cardPerson);
+        $form->handleRequest($request);
 
-        $form_add_person->handleRequest($request);
-
-        if ($form_add_person->isSubmitted() && $form_add_person->isValid()) {
-
-            $person->setCreatedAt(new \Datetime());
-
-            $em->persist($person);
-            $em->flush();
-
-            $this ->get('session')->getFlashBag()->add('message', "La personne a bien été ajouté. ");
+        if ($form->isValid()) {
+            $form_add_service->setForm($form)->create();
 
             return $this->redirectToRoute('add_person');
         }
 
         return $this->render('cardperson/add_person.html.twig', array(
-            'form_add_person' => $form_add_person->createView()
+            'form_add_person' => $form->createView()
         ));
     }
 
@@ -72,27 +68,26 @@ class NoteBookController extends Controller
      */
     public function editPersonAction(Request $request, CardPerson $person)
     {
-        $em = $this->getDoctrine()->getManager();
 
-        $form_edit_person = $this->get('form.factory')->create(CardPersonType::class, $person);
+        $form_add_service = $this->get('form_add_person');
 
-        $form_edit_person->handleRequest($request);
+        $form = $this->createForm(CardPersonType::class, $person);
+        $form->handleRequest($request);
 
-            if ($form_edit_person->isSubmitted() && $form_edit_person->isValid()) {
+        if ($form->isValid()) {
+            $form_add_service->setForm($form)->update();
 
-                $em->flush();
-
-                $this ->get('session')->getFlashBag()->add('message', "Merci, la fiche de la personne a bien été mise à jour. ");
-
-                return $this->redirectToRoute('edit_person', array(
-                    'id_person'=>$person->getId()
-                ));
-            }
+            return $this->redirectToRoute('edit_person', array(
+                'id_person' => $person->getId()
+            ));
+        }
 
         return $this->render('cardperson/add_person.html.twig', array(
-            'form_add_person' => $form_edit_person->createView(),
-            'person'=>$person
+            'form_add_person' => $form->createView(),
+            'person' => $person
         ));
+
+
     }
 
 

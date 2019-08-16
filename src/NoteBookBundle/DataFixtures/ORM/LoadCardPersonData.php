@@ -30,7 +30,7 @@ class LoadCardPersonData
                  $cardperson -> setName('nom'.$i);
                  $cardperson -> setFirstname('prenom'.$i);
                  $cardperson -> setComments('commentaires concernant la personne nom'.$i);
-                 $cardperson -> setEmail('nom'.$i.'gmail.com');
+                 $cardperson -> setEmail('nom'.$i.'@gmail.com');
                  $cardperson -> setPhone('06172020'.$i.$i);
                  $cardperson -> setProfession('informaticien - code:'.$i.$i);
 

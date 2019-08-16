@@ -77,8 +77,7 @@ class CardPerson
     /**
      * @var bool
      *
-     * @Assert\NotBlank
-     * @ORM\Column(name="status", type="boolean", nullable=true)
+     * @ORM\Column(name="status", type="boolean")
      */
     private $status;
 

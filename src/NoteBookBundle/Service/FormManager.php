@@ -14,11 +14,10 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Config\Definition\Exception\Exception;
 use Symfony\Component\DependencyInjection\Container;
 
-class FormAddPerson
+class FormManager
 {
 
     private $em;
-    private $repository;
     private $tokenStorage;
     private $session;
     private $form;
