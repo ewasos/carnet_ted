@@ -2,7 +2,11 @@
 
 {% block body %}
  <h1>Liste des personnes</h1>
-
+    {% for flashMessage in app.session.flashbag.get('message_delate') %}
+     <div class="alert ">
+         {{ flashMessage }}
+     </div>
+    {% endfor %}
 <table>
  <thead>
  <tr>
@@ -16,6 +20,7 @@
   <th >Commentaire</th>
   <th >Ajouté le</th>
   <th >Nom Carnet</th>
+  <th ></th>
 
  </tr>
  </thead>
@@ -33,6 +38,7 @@
    <td>{{ person.comments }}</td>
    <td>{{ person.createdAt|date("m/d/Y") }}</td>
    <td>{{ person.getNoteBook().name }}</td>
+   <td><a class="btn btn-danger" href="{{ path('delate_person', {'id_person': person.id})}}" role="button"> Supprimer </a> </td>
  {% endfor %}
 
  </tbody>

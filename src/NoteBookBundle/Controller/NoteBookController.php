@@ -66,4 +66,21 @@ class NoteBookController extends Controller
     }
 
 
+    /**
+     * @Route("/delate/{id_person}", requirements={"id_person" = "\d+"}, name="delate_person")
+     * @ParamConverter("person", class="NoteBookBundle:CardPerson", options={"mapping": {"id_person":"id"}})
+     * @return RedirectResponse
+     */
+    public function delatePersonAction(Request $request, CardPerson $person)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $em->remove($person);
+        $em->flush();
+
+        $this ->get('session')->getFlashBag()->add('message_delate', "La personne a bien été supprimé. ");
+
+        return $this->redirectToRoute('list_persons', $request->query->all());
+    }
 }
