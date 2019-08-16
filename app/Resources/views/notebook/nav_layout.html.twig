@@ -5,7 +5,7 @@
     <ul>
         <li><a class="active" href="#home">Carnet d'adresse</a></li>
         <li><a href="{{ path('list_persons') }}">Afficher la liste</a></li>
-        <li><a href="#contact">Ajouter une personne</a></li>
+        <li><a href="{{ path('add_person') }}">Ajouter une personne</a></li>
     </ul>
 {% endblock %}
 
@@ -20,6 +20,21 @@
         a { color: #0000F0; }
         a:hover { text-decoration: none; }
         .center {text-align: center;}
+        .alert {
+            display: block;
+            background-color: #66dd66;
+        }
+        .msg_error ul {
+            background-color: aliceblue!important;
+        }
+        .msg_error ul li{
+            color: #cc0033;
+            display: block;
+            font-size: 12px;
+            line-height: 1.5em;
+            margin: 0;
+            padding:0;
+        }
         ul {
             list-style-type: none;
             margin: 0;
@@ -78,7 +93,6 @@
         }
 
         tr:nth-child(even){background-color: #f2f2f2}
-
 
     </style>
 {% endblock %}

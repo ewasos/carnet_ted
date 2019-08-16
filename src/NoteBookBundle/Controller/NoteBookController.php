@@ -2,12 +2,16 @@
 
 namespace NoteBookBundle\Controller;
 
+use NoteBookBundle\Entity\CardPerson;
 use NoteBookBundle\Entity\NoteBook;
+use NoteBookBundle\Form\CardPersonType;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class NoteBookController extends Controller
 {
@@ -33,45 +37,33 @@ class NoteBookController extends Controller
         ));
     }
     /**
-     * @Route("/add", name="add_notebook")
+     * @Route("/add", name="add_person")
      */
-    public function createAction()
+    public function addPersonAction(Request $request)
     {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to your action: createAction(EntityManagerInterface $entityManager)
-        $entityManager = $this->getDoctrine()->getManager();
+        $em = $this->getDoctrine()->getManager();
 
-        $notebook = new NoteBook();
-        $notebook->setName('test');
-        $notebook->setCreatedAt(new \DateTime);
+        $person = new CardPerson();
+        $form_add_person = $this->get('form.factory')->create(CardPersonType::class, $person);
 
+        $form_add_person->handleRequest($request);
 
-        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-        $entityManager->persist($notebook);
+        if ($form_add_person->isSubmitted() && $form_add_person->isValid()) {
 
-        // actually executes the queries (i.e. the INSERT query)
-        $entityManager->flush();
+            $person->setCreatedAt(new \Datetime());
 
-        return new Response('Saved new product with id '.$notebook->getId());
+            $em->persist($person);
+            $em->flush();
+
+            $this ->get('session')->getFlashBag()->add('message', "La personne a bien été ajouté. ");
+
+            return $this->redirectToRoute('add_person');
+        }
+
+        return $this->render('cardperson/add_person.html.twig', array(
+            'form_add_person' => $form_add_person->createView()
+        ));
     }
 
 
-    /**
-     * @Route("/delate", name="delate_notebook")
-     */
-    public function delateAction()
-    {
-        // you can fetch the EntityManager via $this->getDoctrine()
-        // or you can add an argument to your action: createAction(EntityManagerInterface $entityManager)
-        $entityManager = $this->getDoctrine()->getManager();
-
-        $repository = $this->getDoctrine()->getRepository(NoteBook::class);
-        $product = $repository->find(1);
-
-        $entityManager->remove($product);
-        $entityManager->flush();
-
-
-        return new Response('ok');
-    }
-    }
+}

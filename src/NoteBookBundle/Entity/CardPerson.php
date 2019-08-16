@@ -3,6 +3,8 @@
 namespace NoteBookBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * CardPerson
@@ -24,6 +26,8 @@ class CardPerson
     /**
      * @var string
      *
+     * @Assert\Type("string")
+     * @Assert\NotBlank
      * @ORM\Column(name="name", type="string", length=255)
      */
     private $name;
@@ -31,6 +35,8 @@ class CardPerson
     /**
      * @var string
      *
+     * @Assert\Type("string")
+     * @Assert\NotBlank
      * @ORM\Column(name="firstname", type="string", length=255)
      */
     private $firstname;
@@ -38,13 +44,20 @@ class CardPerson
     /**
      * @var string
      *
-     * @ORM\Column(name="phone", type="string", length=255)
+     * @Assert\Length(min = 8, max = 20, minMessage = "Numéro trop court", maxMessage = "Numéro trop long")
+     * @Assert\Regex(pattern="/^[0-9]*$/", message=" Numero de téléphone incorrect")
+     * @ORM\Column(name="phone", type="string", length=20)
      */
     private $phone;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.",
+     *     checkMX = true
+     * )
      * @ORM\Column(name="email", type="string", length=255)
      */
     private $email;
@@ -52,6 +65,11 @@ class CardPerson
     /**
      * @var string
      *
+     * @Assert\Length(
+     *      min = 5,
+     *      max = 255,
+     *      minMessage = "Ce champ doit être composé d'au moins {{ limit }} caractères."
+     * )
      * @ORM\Column(name="profession", type="string", length=255)
      */
     private $profession;
@@ -59,6 +77,7 @@ class CardPerson
     /**
      * @var bool
      *
+     * @Assert\NotBlank
      * @ORM\Column(name="status", type="boolean", nullable=true)
      */
     private $status;
@@ -66,7 +85,12 @@ class CardPerson
     /**
      * @var string
      *
-     * @ORM\Column(name="comments", type="string", length=255)
+     * @Assert\Length(
+     *      min = 15,
+     *      max = 1500,
+     *      minMessage = "Ce champ doit être composé d'au moins {{ limit }} caractères."
+     * )
+     * @ORM\Column(name="comments", type="string", length=1500)
      */
     private $comments;
 
@@ -78,6 +102,8 @@ class CardPerson
     private $createdAt;
 
     /**
+     *
+     * @Assert\NotBlank
      * @ORM\ManyToOne(targetEntity="NoteBookBundle\Entity\NoteBook", inversedBy="persons")
      */
     private $notebook;
