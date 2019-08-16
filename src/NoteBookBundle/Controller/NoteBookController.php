@@ -18,7 +18,7 @@ class NoteBookController extends Controller
     /**
      * @Route("/", name="list_persons")
      */
-    public function listerAction(Request $request)
+    public function listerPersonsAction(Request $request)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -62,6 +62,36 @@ class NoteBookController extends Controller
 
         return $this->render('cardperson/add_person.html.twig', array(
             'form_add_person' => $form_add_person->createView()
+        ));
+    }
+
+
+    /**
+     * @Route("/edit/{id_person}", requirements={"id_person" = "\d+"}, name="edit_person")
+     * @ParamConverter("person", class="NoteBookBundle:CardPerson", options={"mapping": {"id_person":"id"}})
+     */
+    public function editPersonAction(Request $request, CardPerson $person)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $form_edit_person = $this->get('form.factory')->create(CardPersonType::class, $person);
+
+        $form_edit_person->handleRequest($request);
+
+            if ($form_edit_person->isSubmitted() && $form_edit_person->isValid()) {
+
+                $em->flush();
+
+                $this ->get('session')->getFlashBag()->add('message', "Merci, la fiche de la personne a bien été mise à jour. ");
+
+                return $this->redirectToRoute('edit_person', array(
+                    'id_person'=>$person->getId()
+                ));
+            }
+
+        return $this->render('cardperson/add_person.html.twig', array(
+            'form_add_person' => $form_edit_person->createView(),
+            'person'=>$person
         ));
     }
 

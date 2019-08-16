@@ -21,6 +21,7 @@
   <th >Ajouté le</th>
   <th >Nom Carnet</th>
   <th ></th>
+  <th ></th>
 
  </tr>
  </thead>
@@ -38,6 +39,7 @@
    <td>{{ person.comments }}</td>
    <td>{{ person.createdAt|date("m/d/Y") }}</td>
    <td>{{ person.getNoteBook().name }}</td>
+   <td><a class="btn btn-danger" href="{{ path('edit_person', {'id_person': person.id})}}" role="button"> Editer </a> </td>
    <td><a class="btn btn-danger" href="{{ path('delate_person', {'id_person': person.id})}}" role="button"> Supprimer </a> </td>
  {% endfor %}
 

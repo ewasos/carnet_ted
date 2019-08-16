@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d95de37a-c91e-433a-beb7-63f3c2fa7d17" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="81" column="102" selection-start-line="81" selection-start-column="102" selection-end-line="81" selection-end-column="102" />
+            <state relative-caret-position="356">
+              <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
               <folding>
                 <element signature="e#45#82#0#PHP" expanded="true" />
               </folding>
@@ -32,22 +32,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" column="16" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="4" column="67" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="67" />
+            <state relative-caret-position="708">
+              <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="512">
+              <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -124,11 +124,11 @@
         <option value="$PROJECT_DIR$/app/config/config.yml" />
         <option value="$PROJECT_DIR$/app/Resources/views/cardperson/add_person.htm.twig" />
         <option value="$PROJECT_DIR$/src/NoteBookBundle/Form/CardPersonType.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig" />
         <option value="$PROJECT_DIR$/src/NoteBookBundle/Entity/CardPerson.php" />
-        <option value="$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig" />
-        <option value="$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php" />
         <option value="$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig" />
+        <option value="$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php" />
+        <option value="$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig" />
+        <option value="$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig" />
       </list>
     </option>
   </component>
@@ -252,6 +252,13 @@
               <item name="carnet-app" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="NoteBookBundle" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="carnet-app" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carnet-app" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="NoteBookBundle" type="462c0819:PsiDirectoryNode" />
               <item name="Form" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -295,12 +302,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1565790614666</updated>
-      <workItem from="1565790615850" duration="38732000" />
+      <workItem from="1565790615850" duration="40235000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38732000" />
+    <option name="totallyTimeSpent" value="40235000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -316,12 +323,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16238767" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22143774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info active="true" anchor="bottom" id="Terminal" sideWeight="0.49935815" visible="true" weight="0.35033557" />
+      <window_info anchor="bottom" id="Terminal" sideWeight="0.49935815" visible="true" weight="0.07114094" />
       <window_info anchor="bottom" id="Event Log" sideWeight="0.5006418" side_tool="true" weight="0.31275168" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32885906" />
@@ -529,13 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="16" selection-start-line="6" selection-start-column="4" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NoteBookBundle/Form/CardPersonType.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
@@ -546,27 +546,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="53" selection-end-line="4" selection-end-column="67" />
+        <state relative-caret-position="144">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/cardperson/add_person.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="708">
+          <caret line="58" column="54" selection-start-line="58" selection-start-column="54" selection-end-line="58" selection-end-column="54" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/NoteBookBundle/Controller/NoteBookController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="81" column="102" selection-start-line="81" selection-start-column="102" selection-end-line="81" selection-end-column="102" />
+        <state relative-caret-position="356">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
           <folding>
             <element signature="e#45#82#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/nav_layout.html.twig">
+    <entry file="file://$PROJECT_DIR$/app/Resources/views/notebook/liste_person.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
+        <state relative-caret-position="512">
+          <caret line="41" column="52" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="52" />
         </state>
       </provider>
     </entry>
